@@ -1,0 +1,34 @@
+{
+  "name": "emighter",
+  "version": "0.0.0",
+  "description": "Dragons, dragons everywhere.",
+  "keywords": [
+    "dragons"
+  ],
+  "author": "leeolayvar <leeolayvar@gmail.com> (http://leeolayvar.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leeolayvar/emighter.git"
+  },
+  "bugs": {
+    "url": "http://github.com/leeolayvar/emighter/issues"
+  },
+  "scripts": {
+    "prepublish": "cake prepublish",
+    "test": "cake test"
+  },
+  "devDependencies": {
+    "mocha": "0.14.x",
+    "should": "0.5.x",
+    "coffee-script": "1.3.x"
+  },
+  "dependencies": {
+  },
+  "main": "./build/lib/index.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/leeolayvar/emighter/master/LICENSE"
+    }
+  ]
+}
