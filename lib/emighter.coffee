@@ -56,20 +56,16 @@ class Emighter
       @_fns[namespace].splice 0, 0, [fn, options]
   
   
-  emit: (namespace, args, extra_args...) =>
+  emit: (namespace, args...) =>
     callback = ->
     
     if not @_fns[namespace]?
       return
     
-    if not (args instanceof Array)
-      args = [args]
-    else if extra_args[0] instanceof Function
-      callback = (extra_args.splice 0, 1)[0]
-    else
-      args = [args]
-    
-    args.push extra_args...
+    if args[0] instanceof Array and args[1] instanceof Function
+      callback = (args.splice 1, 1)[0]
+      args[0].push args[1..]...
+      args = args[0]
     
     @_iterate_fns @_fns[namespace], args, -> callback()
 
