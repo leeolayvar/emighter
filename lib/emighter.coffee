@@ -73,7 +73,7 @@ class Emighter
 
 class EmighterNamespaced
   constructor: ->
-    @_emighter = new Emighter()
+    @__emighter = new Emighter()
   
   on: (args...) => @_emighter.on args...
   
