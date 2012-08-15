@@ -69,6 +69,19 @@ class Emighter
       return
     
     @_iterate_fns @_fns[namespace], args, -> callback()
+  
+  
+  remove: (namespace, fn, multiple=false) =>
+    if not @_fns[namespace]?
+      return
+    
+    for index in [0...@_fns[namespace].length]
+      [f, options] = @_fns[namespace][index]
+      if fn is f
+        @_fns[namespace].splice index, 1
+        if not multiple
+          break
+
 
 
 
@@ -79,6 +92,8 @@ class EmighterNamespaced
   on: (args...) => @__emighter.on args...
   
   emit: (args...) => @__emighter.emit args...
+  
+  remove: (args...) => @__emighter.remove args...
 
 
 
