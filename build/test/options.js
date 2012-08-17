@@ -5,13 +5,8 @@
   dork = require('dork');
 
   dork.options({
-    global: true
+    global: true,
+    reporters: [new dork.reporters.StdoutReporter()]
   });
-
-  exports.emighter = require('./emighter');
-
-  if (require.main === module) {
-    dork.run();
-  }
 
 }).call(this);

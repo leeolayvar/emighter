@@ -17,6 +17,8 @@
   Emighter = (function() {
 
     function Emighter() {
+      this.remove = __bind(this.remove, this);
+
       this.emit = __bind(this.emit, this);
 
       this.on = __bind(this.on, this);
@@ -95,6 +97,31 @@
       });
     };
 
+    Emighter.prototype.remove = function(namespace, fn, multiple) {
+      var f, index, options, _i, _ref, _ref1, _results;
+      if (multiple == null) {
+        multiple = false;
+      }
+      if (!(this._fns[namespace] != null)) {
+        return;
+      }
+      _results = [];
+      for (index = _i = 0, _ref = this._fns[namespace].length; 0 <= _ref ? _i < _ref : _i > _ref; index = 0 <= _ref ? ++_i : --_i) {
+        _ref1 = this._fns[namespace][index], f = _ref1[0], options = _ref1[1];
+        if (fn === f) {
+          this._fns[namespace].splice(index, 1);
+          if (!multiple) {
+            break;
+          } else {
+            _results.push(void 0);
+          }
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    };
+
     return Emighter;
 
   })();
@@ -102,6 +129,8 @@
   EmighterNamespaced = (function() {
 
     function EmighterNamespaced() {
+      this.remove = __bind(this.remove, this);
+
       this.emit = __bind(this.emit, this);
 
       this.on = __bind(this.on, this);
@@ -118,6 +147,12 @@
       var args, _ref;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       return (_ref = this.__emighter).emit.apply(_ref, args);
+    };
+
+    EmighterNamespaced.prototype.remove = function() {
+      var args, _ref;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      return (_ref = this.__emighter).remove.apply(_ref, args);
     };
 
     return EmighterNamespaced;
