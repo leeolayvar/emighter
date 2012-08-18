@@ -1,9 +1,12 @@
 {
   "name": "emighter",
-  "version": "0.0.0",
-  "description": "Dragons, dragons everywhere.",
+  "version": "0.0.1",
+  "description": "A simple async-ok event emitter.",
   "keywords": [
-    "dragons"
+    "event",
+    "events",
+    "emitter",
+    "eventemitter"
   ],
   "author": "leeolayvar <leeolayvar@gmail.com> (http://leeolayvar.com)",
   "repository": {
