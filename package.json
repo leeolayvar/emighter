@@ -1,6 +1,6 @@
 {
   "name": "emighter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A simple async-ok event emitter.",
   "keywords": [
     "event",
