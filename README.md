@@ -37,7 +37,7 @@ emighter.on 'foo', (done) -> console.log "I'm not going to callback"
 emighter.on 'foo', -> console.log "I'll never be called, because ^he^ is lazy."
 
 # Explicit
-emighter.on 'bar', (-> console.log "I'm explicitly async!), callback: true
+emighter.on 'bar', (-> console.log "I'm explicitly async!"), callback: true
 emighter.on 'bar', console.log "I won't be called either :/"
 ```
 
@@ -60,9 +60,9 @@ emighter.emit 'foo', [1], (->), 2, 3 # Calls `fn 1, 2, 3`
 emighter.emit 'foo', [], (->), 1, 2, 3 # Calls `fn 1, 2, 3`
 ```
 
-And i think that sums Emighter up for no. There are currently no extras, such
-as pattern matching namespaces, emitting multiple namespaces at once, etc. Like
-i said, you probably don't want to use this library.
+And i think that sums Emighter up for now. There are currently no extras, such
+as pattern matching namespaces, emitting multiple namespaces at once, and etc.
+Like i said, you probably don't want to use this library.
 
 ## Author
 
