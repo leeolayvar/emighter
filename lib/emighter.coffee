@@ -59,25 +59,41 @@ class Emighter
   emit: (namespace, args...) =>
     callback = ->
     
-    if not @_fns[namespace]?
-      return
-    
     if args[0] instanceof Array and args[1] instanceof Function
       callback = (args.splice 1, 1)[0]
       args[0].push args[1..]...
       args = args[0]
     
+    if not @_fns[namespace]?
+      callback()
+      return
+    
     @_iterate_fns @_fns[namespace], args, -> callback()
+  
+  
+  remove: (namespace, fn, multiple=false) =>
+    if not @_fns[namespace]?
+      return
+    
+    for index in [0...@_fns[namespace].length]
+      [f, options] = @_fns[namespace][index]
+      if fn is f
+        @_fns[namespace].splice index, 1
+        if not multiple
+          break
+
 
 
 
 class EmighterNamespaced
   constructor: ->
-    @_emighter = new Emighter()
+    @__emighter = new Emighter()
   
-  on: (args...) => @_emighter.on args...
+  on: (args...) => @__emighter.on args...
   
-  emit: (args...) => @_emighter.emit args...
+  emit: (args...) => @__emighter.emit args...
+  
+  remove: (args...) => @__emighter.remove args...
 
 
 
