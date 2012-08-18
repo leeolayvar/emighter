@@ -8,13 +8,6 @@ dork = require 'dork'
 
 
 
-
-# Define any options we want to use.
-dork.options
-  global: true
-
-
-
-
 exports.emighter = require './emighter'
+exports.options = require './options'
 if require.main is module then dork.run()

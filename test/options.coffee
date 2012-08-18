@@ -13,4 +13,3 @@ dork = require 'dork'
 
 dork.options
   global: true
-  reporters: [new dork.reporters.StdoutReporter()]
