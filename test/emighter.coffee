@@ -10,6 +10,7 @@ require './options'
 
 
 
+
 describe 'Emighter', ->
   Emighter = (require '../lib/emighter').Emighter
   emighter = undefined
@@ -27,6 +28,19 @@ describe 'Emighter', ->
     emighter.on 'foo', -> throw new Error 'Non-matching namespace called.'
     emighter.emit 'bar'
   
+  it 'should properly remove a function', ->
+    baz_count = zed_count = 0
+    baz = -> baz_count += 1
+    zed = -> zed_count += 1
+    emighter.on 'foo', baz
+    emighter.on 'foo', zed
+    emighter.on 'bar', baz
+    emighter.on 'bar', zed
+    emighter.remove 'foo', baz
+    emighter.emit 'foo'
+    emighter.emit 'bar'
+    baz_count.should.equal 1
+    zed_count.should.equal 2
 
 
 
