@@ -1,9 +1,12 @@
 {
   "name": "emighter",
-  "version": "0.0.0",
-  "description": "Dragons, dragons everywhere.",
+  "version": "0.0.1",
+  "description": "A simple async-ok event emitter.",
   "keywords": [
-    "dragons"
+    "event",
+    "events",
+    "emitter",
+    "eventemitter"
   ],
   "author": "leeolayvar <leeolayvar@gmail.com> (http://leeolayvar.com)",
   "repository": {
@@ -20,8 +23,7 @@
   "devDependencies": {
     "bork": "0.0.x",
     "walker": "1.0.3",
-    "mocha": "0.14.x",
-    "should": "0.5.x",
+    "should": "1.x.x",
     "coffee-script": "1.3.x"
   },
   "dependencies": {
