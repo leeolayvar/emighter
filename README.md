@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/leeolayvar/emighter.png)](http://travis-ci.org/leeolayvar/emighter)
 
 # Emighter.js - A simple async-ok event emitter.
 
